@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 script {
-                    withCredentials([file(credentialsId: 'kubernetes-credentials-id', variable: 'KUBECONFIG')]) {
+                    withCredentials([file(credentialsId: '85bbb980-7fc0-4c83-9ae4-c2624b4147a1', variable: 'KUBECONFIG')]) {
                         sh 'kubectl apply -f kubernetes/deployment.yaml --kubeconfig=$KUBECONFIG'
                     }
                 }
