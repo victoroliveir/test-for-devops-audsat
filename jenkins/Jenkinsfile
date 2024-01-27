@@ -10,7 +10,6 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        
         stage('Teste') {
             agent {
                 docker { image 'maven:latest' } // Usa uma imagem Docker com Maven
@@ -19,7 +18,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        
         stage('Implantação no Kubernetes') {
             environment {
                 KUBECONFIG = credentials('kubernetes-credentials-id')
