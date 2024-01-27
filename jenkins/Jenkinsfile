@@ -3,12 +3,18 @@ pipeline {
     
     stages {
         stage('Compilação') {
+            agent {
+                docker { image 'maven:latest' } // Usa uma imagem Docker com Maven
+            }
             steps {
                 sh 'mvn clean package'
             }
         }
         
         stage('Teste') {
+            agent {
+                docker { image 'maven:latest' } // Usa uma imagem Docker com Maven
+            }
             steps {
                 sh 'mvn test'
             }
