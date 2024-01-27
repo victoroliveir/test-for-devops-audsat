@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hods-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hods-api
+  template:
+    metadata:
+      labels:
+        app: hods-api
+    spec:
+      containers:
+      - image: hods-api/hods-api:latest
+        name: hods-api
+        ports:
+          - containerPort: 8080
