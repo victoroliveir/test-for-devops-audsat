@@ -1,4 +1,4 @@
-package com.example.hodsapi;
+package com.example.netodevelapi;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,10 +1,10 @@
-package com.example.hodsapi;
+package com.example.netodevelapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class hodsApiApplicationTests {
+class NetodevelApiApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hods-api
+  name: netodevel-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hods-api
+      app: netodevel-api
   template:
     metadata:
       labels:
-        app: hods-api
+        app: netodevel-api
     spec:
       containers:
-      - image: hods-api/hods-api:latest
-        name: hods-api
+      - image: netodevel/netodevel-api:latest
+        name: netodevel-api
         ports:
           - containerPort: 8080
