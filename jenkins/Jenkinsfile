@@ -30,26 +30,26 @@ pipeline {
         stage('Docker build') { // Estágio para construir a imagem Docker
             steps {
                 unstash 'source' // Recupera o código fonte empacotado
-                sh "docker build . -t netodevel/netodevel-api:${POM_VERSION}" // Constrói a imagem Docker com base no código fonte e na versão do POM
+                sh "docker build . -t hods/hods-api:${POM_VERSION}" // Constrói a imagem Docker com base no código fonte e na versão do POM
             }
         }
 
-        stage('Docker push to registry') { // Estágio para enviar a imagem Docker para o registro
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'docker_hub_pat',variable: 'dockerHubPat')]) {
-                        sh "docker login -u netodevel -p ${dockerHubPat}" // Faz login no registro Docker
-                        sh "docker push netodevel/netodevel-api:${POM_VERSION}" // Envia a imagem Docker para o registro
-                    }
-                }
-            }
-        }
+//        stage('Docker push to registry') { // Estágio para enviar a imagem Docker para o registro
+//            steps {
+//                script {
+//                    withCredentials([string(credentialsId: 'docker_hub_pat',variable: 'dockerHubPat')]) {
+//                        sh "docker login -u hods -p ${dockerHubPat}" // Faz login no registro Docker
+//                        sh "docker push hods/hods-api:${POM_VERSION}" // Envia a imagem Docker para o registro
+//                    }
+//                }
+//            }
+//        }
 
         stage('Apply Kubernetes files') { // Estágio para aplicar arquivos Kubernetes
             steps {
                 withKubeConfig([credentialsId: 'kind-cluster-config', serverUrl: 'https://127.0.0.1:35433']) {
                   sh 'kubectl apply -f k8s' // Aplica os arquivos de configuração do Kubernetes
-                  sh 'kubectl rollout restart deployment netodevel-api' // Reinicia a implantação no Kubernetes para aplicar as alterações
+                  sh 'kubectl rollout restart deployment hods-api' // Reinicia a implantação no Kubernetes para aplicar as alterações
                 }
             }
         }

@@ -1,13 +1,13 @@
-package com.example.netodevelapi;
+package com.example.hodsapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NetodevelApiApplication {
+public class hodsApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NetodevelApiApplication.class, args);
+		SpringApplication.run(hodsApiApplication.class, args);
 	}
 
 }

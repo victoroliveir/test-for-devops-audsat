@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.example.hods-api' is invalid and this project uses 'com.example.netodevelapi' instead.
+* The original package name 'com.example.hods-api' is invalid and this project uses 'com.example.hodsapi' instead.
 
 # Getting Started
 
