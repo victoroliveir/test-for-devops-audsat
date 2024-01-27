@@ -1,10 +1,9 @@
 pipeline {
-    
-//    agent any
-//
-//    environment {
-//        POM_VERSION = "" // Variável para armazenar a versão do POM
-//    }
+    agent any
+
+    environment {
+        POM_VERSION = "" // Variável para armazenar a versão do POM
+    }
 
     stages {
         stage('Build') { // Estágio para construir o projeto
