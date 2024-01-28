@@ -20,7 +20,10 @@ pipeline {
         }
         stage('Implantação no Kubernetes') {
             agent {
-                docker { image 'bitnami/kubectl' } // Usa uma imagem Docker com Maven
+                docker { 
+                    image 'bitnami/kubectl' 
+                    args '-it --entrypoint=/bin/bash'
+                }
             }
             environment {
                 KUBECONFIG = credentials('kubeconfig_minikube')
