@@ -22,7 +22,7 @@ pipeline {
             agent {
                 docker { 
                     image 'bitnami/kubectl' 
-                    args '-it --entrypoint=/bin/bash'
+                    args '-i --entrypoint='
                 }
             }
             environment {
