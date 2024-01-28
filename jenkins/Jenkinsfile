@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([file(credentialsId: 'kubeconfig_minikube', variable: 'KUBECONFIG')]) {
-                        sh 'kubectl apply -f kubernetes/deployment.yaml --kubeconfig=$KUBECONFIG'
+                        sh 'kubectl apply -n audsat -f kubernetes/deployment.yaml --kubeconfig=$KUBECONFIG'
                     }
                 }
             }
